@@ -7,7 +7,19 @@ import ReactDOM from "react-dom";
 import "../styles/index.css";
 
 //import your own components
-import Home from "./component/home.jsx";
+import SecondsCounter from "./component/SecondsCounter.jsx";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+let counter = 0;
+setInterval(function(){
+    let numberOne = Math.floor(counter/1);
+    let numberTwo = Math.floor(counter/10);
+    let numberThree = Math.floor(counter/100);
+    let numberFour = Math.floor(counter/1000);
+    let numberFive = Math.floor(counter/10000);
+    let numberSix = Math.floor(counter/100000);
+    counter++;
+    ReactDOM.render(<SecondsCounter numOne={numberOne} numTwo={numberTwo} numThree={numberThree} numFour={numberFour} numFive={numberFive} numSix={numberSix}/>,document.querySelector('#app'))
+}
+
+,1000);
